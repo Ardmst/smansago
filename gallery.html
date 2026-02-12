@@ -23,8 +23,33 @@
 
         .label { padding: 15px; text-align: center; font-weight: bold; color: #1a5d1a; font-size: 0.9rem; }
 
+        /* MODAL POPUP FIX RATIO */
         .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
-        .modal-content { width: 80%; height: 80%; border: 5px solid white; border-radius: 10px; background: #000; }
+        
+        /* Hilangkan width/height 80% yang kaku */
+        .modal-content { 
+            max-width: 90%; 
+            max-height: 90%; 
+            border: 5px solid white; 
+            border-radius: 10px; 
+            background: #000; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        /* Khusus Image agar border rapat mengikuti rasio */
+        #imgFull { 
+            width: auto; 
+            height: auto; 
+            display: none;
+        }
+
+        /* Khusus Video/Iframe agar punya rasio landscape 16:9 yang pas */
+        #videoFull { 
+            width: 80vw; 
+            aspect-ratio: 16 / 9; 
+            display: none;
+        }
+
         .close { position: absolute; top: 20px; right: 35px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
@@ -51,8 +76,8 @@
 
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="imgFull" style="display:none; object-fit: contain;">
-        <iframe class="modal-content" id="videoFull" style="display:none;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <img class="modal-content" id="imgFull">
+        <iframe class="modal-content" id="videoFull" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 
     <script>
@@ -63,10 +88,10 @@
             modal.style.display = "flex";
             
             if(type==='img') { 
-                imgF.style.display="block"; 
                 vidF.style.display="none"; 
-                imgF.src=card.getElementsByTagName('img')[0].src; 
                 vidF.src=""; 
+                imgF.style.display="block"; 
+                imgF.src=card.getElementsByTagName('img')[0].src; 
             } else { 
                 imgF.style.display="none"; 
                 vidF.style.display="block"; 
