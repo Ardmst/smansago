@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Beranda - SMAN 1 Gondang</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #ffffff; color: #333; overflow-x: hidden; }
+        
+        nav { background-color: #1a5d1a; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); height: 60px; }
+        .nav-brand { display: flex; align-items: center; color: white; text-decoration: none; font-weight: bold; font-size: 1.5rem; }
+        .nav-brand img { height: 40px; margin-right: 15px; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; text-transform: uppercase; font-size: 14px; transition: 0.3s; }
+        .nav-links a:hover { color: #ffcc00; }
+
+        header { background: linear-gradient(rgba(26, 93, 26, 0.7), rgba(26, 93, 26, 0.7)), url('images/header.jpg'); background-size: cover; background-position: center; height: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
+        .section { padding: 60px 10%; text-align: center; }
+        .bg-light { background-color: #f9f9f9; }
+        .floating-logo { width: 120px; margin-bottom: 20px; animation: float 3s ease-in-out infinite; }
+        .grid-pilar { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+        .pilar-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-top: 5px solid #1a5d1a; }
+        .pilar-card h3 { color: #1a5d1a; margin-bottom: 10px; }
+        .btn-green { background-color: #1a5d1a; color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; display: inline-block; margin-top: 25px; font-weight: bold; transition: 0.3s; }
+        .btn-green:hover { background-color: #2e7d32; transform: scale(1.05); }
+
+        footer { background: #1a5d1a; color: white; padding: 40px 10%; text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        footer h4 { border-bottom: 2px solid #ffcc00; display: inline-block; padding-bottom: 5px; margin-bottom: 20px; }
+        footer p { font-size: 14px; line-height: 1.6; opacity: 0.9; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="beranda.html" class="nav-brand"><img src="images/logo.png" alt="Logo"><span>SMANSAGO</span></a>
+        <div class="nav-links">
+            <a href="beranda.html">Beranda</a>
+            <a href="profil.html">Profil</a>
+            <a href="visi_misi.html">Visi & Misi</a>
+            <a href="gallery.html">Gallery</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1 style="font-size: 3.5rem; margin: 0;">SMA NEGERI 1 GONDANG</h1>
+        <p style="font-size: 1.4rem; font-style: italic; color: #ffcc00;">"Mencetak Generasi Unggul, Berbudaya, dan Inovatif"</p>
+    </header>
+
+    <div class="section">
+        <img src="images/logo.png" alt="Logo" class="floating-logo">
+        <h2 style="color: #1a5d1a; font-size: 2rem;">Selamat Datang di Portal Resmi SMANSAGO</h2>
+        <p style="max-width: 800px; margin: auto; line-height: 1.8; color: #555; font-size: 1.1rem;">Kami hadir sebagai institusi pendidikan yang tidak hanya fokus pada prestasi akademik, tetapi juga penanaman karakter luhur dan kepedulian lingkungan.</p>
+        <a href="https://sman1gondang.sch.id" target="_blank" class="btn-green">KUNJUNGI WEB RESMI</a>
+    </div>
+
+    <div class="section bg-light">
+        <h2 style="color: #1a5d1a;">Pilar Utama Sekolah</h2>
+        <div class="grid-pilar">
+            <div class="pilar-card"><h3>Akademik</h3><p>Kurikulum inovatif berorientasi IPTEK dan persiapan masuk perguruan tinggi.</p></div>
+            <div class="pilar-card"><h3>Karakter</h3><p>Pembiasaan IMTAQ harian, kedisiplinan, dan semangat gotong royong.</p></div>
+            <div class="pilar-card"><h3>Lingkungan</h3><p>Sekolah Adiwiyata yang berkomitmen melestarikan lingkungan hijau.</p></div>
+        </div>
+    </div>
+
+    <footer>
+        <div><h4>Kontak Kami</h4><p>Jl. Wisma Praja No.35, Gondang<br>Kab. Sragen, Jawa Tengah</p></div>
+        <div><h4>Pelayanan</h4><p>Senin - Jumat: 07.00 - 15.30<br>Sabtu - Minggu: Libur</p></div>
+        <div><h4>Media Sosial</h4><p>Instagram: @sman1gondang_sragen<br>YouTube: SMAN 1 GONDANG OFFICIAL</p></div>
+    </footer>
+</body>
+</html>

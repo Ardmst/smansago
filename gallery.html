@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery - SMAN 1 Gondang</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <style>
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #f9f9f9; }
+
+        nav { background-color: #1a5d1a; padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); height: 60px; }
+        .nav-brand { display: flex; align-items: center; color: white; text-decoration: none; font-weight: bold; font-size: 1.5rem; }
+        .nav-brand img { height: 40px; margin-right: 15px; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; text-transform: uppercase; font-size: 14px; transition: 0.3s; }
+        .nav-links a:hover { color: #ffcc00; }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; padding: 50px; max-width: 1200px; margin: auto; }
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-bottom: 5px solid #1a5d1a; cursor: pointer; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card img, .card .yt-thumb { width: 100%; height: 220px; object-fit: cover; display: block; }
+
+        .yt-thumb { background: #000 url('images/preview.jpg') center/cover; position: relative; }
+        .yt-thumb::after { content: '▶'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 50px; opacity: 0.8; }
+
+        .label { padding: 15px; text-align: center; font-weight: bold; color: #1a5d1a; font-size: 0.9rem; }
+
+        .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
+        .modal-content { width: 80%; height: 80%; border: 5px solid white; border-radius: 10px; background: #000; }
+        .close { position: absolute; top: 20px; right: 35px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-brand"><img src="images/logo.png"><span>SMANSAGO</span></a>
+        <div class="nav-links">
+            <a href="index.html">Beranda</a><a href="profil.html">Profil</a><a href="visi_misi.html">Visi & Misi</a><a href="gallery.html">Gallery</a>
+        </div>
+    </nav>
+
+    <h1 style="text-align: center; margin-top: 50px; color: #1a5d1a;">Gallery</h1>
+
+    <div class="gallery-grid">
+        <div class="card" onclick="openModal(this, 'img')"><img src="images/image1.png"><div class="label">Juara 2 Futsal Putri FMS 2026</div></div>
+        <div class="card" onclick="openModal(this, 'img')"><img src="images/image2.png"><div class="label">Juara 2 Solo Vocal SUE 2026</div></div>
+        <div class="card" onclick="openModal(this, 'img')"><img src="images/image3.png"><div class="label">Juara 1 Tari Kreasi SUE 2026</div></div>
+        
+        <div class="card" onclick="openModal(this, 'video')">
+            <div class="yt-thumb"></div>
+            <div class="label">Video Profil SMANSAGO</div>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="imgFull" style="display:none; object-fit: contain;">
+        <iframe class="modal-content" id="videoFull" style="display:none;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        function openModal(card, type) {
+            var modal = document.getElementById("myModal");
+            var imgF = document.getElementById("imgFull");
+            var vidF = document.getElementById("videoFull");
+            modal.style.display = "flex";
+            
+            if(type==='img') { 
+                imgF.style.display="block"; 
+                vidF.style.display="none"; 
+                imgF.src=card.getElementsByTagName('img')[0].src; 
+                vidF.src=""; 
+            } else { 
+                imgF.style.display="none"; 
+                vidF.style.display="block"; 
+                vidF.src="https://www.youtube.com/embed/qO8oheaueWk?autoplay=1"; 
+            }
+        }
+        function closeModal() { 
+            var modal = document.getElementById("myModal");
+            var vidF = document.getElementById("videoFull");
+            modal.style.display="none"; 
+            vidF.src=""; 
+        }
+        window.onclick = function(e) { if(e.target == document.getElementById("myModal")) closeModal(); }
+    </script>
+</body>
+</html>
