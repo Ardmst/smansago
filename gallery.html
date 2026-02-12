@@ -23,47 +23,24 @@
 
         .label { padding: 15px; text-align: center; font-weight: bold; color: #1a5d1a; font-size: 0.9rem; }
 
-        /* MODAL POPUP FIX RATIO */
         .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
-        
-        /* Wadah Utama (Bordernya) */
-        .modal-content-container { 
-            position: relative;
-            background: #000; 
-            border: 5px solid white; 
-            border-radius: 10px; 
-            max-width: 90vw; 
-            max-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        /* Foto akan menyesuaikan wadah tanpa black bar paksa */
-        #imgFull { 
-            display: none;
-            max-width: 100%;
-            max-height: 90vh;
-            width: auto;
-            height: auto;
-        }
-
-        /* Video akan maksa rasio 16:9 agar pas border */
-        #videoFull { 
-            display: none;
-            width: 80vw; 
-            aspect-ratio: 16 / 9; 
-        }
-
+        .modal-content-container { position: relative; background: #000; border: 5px solid white; border-radius: 10px; max-width: 90vw; max-height: 90vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        #imgFull { display: none; max-width: 100%; max-height: 90vh; width: auto; height: auto; }
+        #videoFull { display: none; width: 80vw; aspect-ratio: 16 / 9; }
         .close { position: absolute; top: 20px; right: 35px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 2100; }
     </style>
 </head>
 <body>
     <nav>
-        <a href="index.html" class="nav-brand"><img src="images/logo.png"><span>SMANSAGO</span></a>
+        <a href="index.html" class="nav-brand">
+            <img src="images/logo.png">
+            <span>SMANSAGO</span>
+        </a>
         <div class="nav-links">
-            <a href="index.html">Beranda</a><a href="profil.html">Profil</a><a href="visi_misi.html">Visi & Misi</a><a href="gallery.html">Gallery</a>
+            <a href="index.html">Beranda</a>
+            <a href="profil.html">Profil</a>
+            <a href="visi_misi.html">Visi & Misi</a>
+            <a href="gallery.html">Gallery</a>
         </div>
     </nav>
 
@@ -73,7 +50,6 @@
         <div class="card" onclick="openModal(this, 'img')"><img src="images/image1.png"><div class="label">Juara 2 Futsal Putri FMS 2026</div></div>
         <div class="card" onclick="openModal(this, 'img')"><img src="images/image2.png"><div class="label">Juara 2 Solo Vocal SUE 2026</div></div>
         <div class="card" onclick="openModal(this, 'img')"><img src="images/image3.png"><div class="label">Juara 1 Tari Kreasi SUE 2026</div></div>
-        
         <div class="card" onclick="openModal(this, 'video')">
             <div class="yt-thumb"></div>
             <div class="label">Video Profil SMANSAGO</div>
@@ -94,24 +70,10 @@
             var imgF = document.getElementById("imgFull");
             var vidF = document.getElementById("videoFull");
             modal.style.display = "flex";
-            
-            if(type==='img') { 
-                vidF.style.display="none"; 
-                vidF.src=""; 
-                imgF.style.display="block"; 
-                imgF.src=card.getElementsByTagName('img')[0].src; 
-            } else { 
-                imgF.style.display="none"; 
-                vidF.style.display="block"; 
-                vidF.src="https://www.youtube.com/embed/qO8oheaueWk?autoplay=1"; 
-            }
+            if(type==='img') { vidF.style.display="none"; vidF.src=""; imgF.style.display="block"; imgF.src=card.getElementsByTagName('img')[0].src; }
+            else { imgF.style.display="none"; vidF.style.display="block"; vidF.src="https://www.youtube.com/embed/qO8oheaueWk?autoplay=1"; }
         }
-        function closeModal() { 
-            var modal = document.getElementById("myModal");
-            var vidF = document.getElementById("videoFull");
-            modal.style.display="none"; 
-            vidF.src=""; 
-        }
+        function closeModal() { document.getElementById("myModal").style.display="none"; document.getElementById("videoFull").src=""; }
         window.onclick = function(e) { if(e.target == document.getElementById("myModal")) closeModal(); }
     </script>
 </body>
